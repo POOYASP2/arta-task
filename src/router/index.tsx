@@ -1,10 +1,14 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { HomePage, LoginPage } from '../pages'
 export default function AppRoutes() {
+  const isAuthenticated = localStorage.getItem('items') !== undefined
+
   return (
-    <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/login' element={<LoginPage />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

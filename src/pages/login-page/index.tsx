@@ -1,19 +1,24 @@
 import './styles.css'
 import { useState } from 'react'
 import { loginUser } from '../../api'
+import { useNavigate } from 'react-router-dom'
+
 export const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     const user = {
       email,
       password,
     }
     loginUser(user)
       .then((res) => {
-        console.log(res)
+        localStorage.setItem('token', JSON.stringify(res.token))
+        navigate('/')
       })
       .catch((error) => {
         console.log(error)
@@ -48,6 +53,12 @@ export const LoginPage = () => {
 
           <button type='submit'>ورود</button>
         </form>
+        <div className='hint-wrapper'>
+          <small className='hint'>
+            برای ورود از ایمیل: eve.holt@reqres.in استفاده بکنید.
+          </small>
+          <small>برای رمز عبور از : cityslicka استفاده بکنید.</small>
+        </div>
       </section>
     </main>
   )
