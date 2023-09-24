@@ -1,7 +1,6 @@
 import './styles.css'
 import { useState } from 'react'
 import { loginUser } from '../../api'
-import { LoadingAnimation } from '../../components'
 import { useNavigate } from 'react-router-dom'
 
 export const LoginPage = () => {
