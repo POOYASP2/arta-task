@@ -1,0 +1,19 @@
+.error {
+  color: red;
+  font-size: 12px;
+}
+.form-add-new-user {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-add-new-user > input {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.close-Modal-button {
+  float: left;
+  margin-top: 14px;
+}
