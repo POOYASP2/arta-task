@@ -28,40 +28,37 @@ export const LoginPage = () => {
   return (
     <main className='login-page'>
       <section>
-        <div>
-          <form className='login-form' onSubmit={handleSubmit}>
-            <h1>ورود</h1>
+        <form className='login-form' onSubmit={handleSubmit}>
+          <h1>ورود</h1>
 
-            <div className='form-group'>
-              <label htmlFor='email'>ایمیل:</label>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type='email'
-                id='email'
-              />
-            </div>
-
-            <div className='form-group'>
-              <label htmlFor='password'>رمزعبور:</label>
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type='password'
-                id='password'
-              />
-            </div>
-
-            <button type='submit'>ورود</button>
-          </form>
-          <div className='hint-wrapper'>
-            <small className='hint'>
-              برای ورود از ایمیل: eve.holt@reqres.in استفاده بکنید.
-            </small>
-            <small>برای رمز عبور از : cityslicka استفاده بکنید.</small>
+          <div className='form-group'>
+            <label htmlFor='email'>ایمیل:</label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type='email'
+              id='email'
+            />
           </div>
+
+          <div className='form-group'>
+            <label htmlFor='password'>رمزعبور:</label>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type='password'
+              id='password'
+            />
+          </div>
+
+          <button type='submit'>ورود</button>
+        </form>
+        <div className='hint-wrapper'>
+          <small className='hint'>
+            برای ورود از ایمیل: eve.holt@reqres.in استفاده بکنید.
+          </small>
+          <small>برای رمز عبور از : cityslicka استفاده بکنید.</small>
         </div>
-        <LoadingAnimation />
       </section>
     </main>
   )
