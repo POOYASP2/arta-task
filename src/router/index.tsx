@@ -1,13 +1,43 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import { HomePage, LoginPage } from '../pages'
-export default function AppRoutes() {
-  const isAuthenticated = localStorage.getItem('items') !== undefined
+import { ReactNode } from 'react'
+const PrivateRoute = ({ children }: { children: ReactNode }) => {
+  const isAuthenticated = localStorage.getItem('token') !== null
+  if (isAuthenticated) {
+    return children
+  }
+  return <Navigate to='/login' />
+}
+const PublicRoute = ({ children }: { children: ReactNode }) => {
+  const isAuthenticated = localStorage.getItem('token') === null
+  if (isAuthenticated) {
+    return children
+  }
+  return <Navigate to='/' />
+}
 
+export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/login' element={<LoginPage />} />
+        <Route></Route>
+        <Route
+          path='/'
+          element={
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path='/login'
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   )
