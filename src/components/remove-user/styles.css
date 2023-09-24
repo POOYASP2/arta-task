@@ -1,0 +1,12 @@
+.button-wrapper {
+  display: flex;
+  gap: 12px;
+}
+.user-table__actions--remove {
+  color: white;
+  background-color: red;
+}
+.confrim-modal-button {
+  color: green;
+  color: black;
+}
